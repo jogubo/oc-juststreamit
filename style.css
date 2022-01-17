@@ -1,0 +1,17 @@
+/* Header */
+header {
+    background-color: #2e3440;
+    color: #eceff4;
+    display: flex;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+nav a, nav a:visited{
+    color: #eceff4;
+    padding-right: 10px;
+    text-decoration: none;
+}
