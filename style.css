@@ -1,8 +1,49 @@
+/* Global */
+@font-face {
+  font-family: 'Barlow';
+  src:
+    url('fonts/Barlow-Regular.woff2') format('woff2'),
+    url('fonts/Barlow-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Barlow';
+  src:
+    url('fonts/Barlow-Bold.woff2') format('woff2'),
+    url('fonts/Barlow-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+* {
+    color: #2e3440;
+    background-color: #eceff4;
+    font-family: 'Barlow', sans-serif;
+}
+
+body {
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Header */
-header {
+header, header * {
     background-color: #2e3440;
     color: #eceff4;
+}
+
+header {
+    padding-left:25px;
+    padding-right: 25px;
     display: flex;
+    justify-content:space-between;
+}
+
+header h1 {
+    font-weight: 400;
 }
 
 nav ul {
@@ -12,6 +53,8 @@ nav ul {
 
 nav a, nav a:visited{
     color: #eceff4;
-    padding-right: 10px;
+    padding-left: 10px;
     text-decoration: none;
 }
+
+/* Section */
