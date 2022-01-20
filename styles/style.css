@@ -33,6 +33,7 @@ body {
 header, header * {
     background-color: #2e3440;
     color: #eceff4;
+    border-radius: 25px;
 }
 
 header {
@@ -58,3 +59,26 @@ nav a, nav a:visited{
 }
 
 /* Section */
+#highest-rated {
+    text-align: center;
+}
+
+.category {
+    text-align: center;
+}
+
+.carousel {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    border: none;
+    color: red;
+    font-size: 2.5em;
+    cursor: pointer;
+}
+
+.fas:hover {
+    color: #5e81ac;
+}

@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
         <title>JustStreamIt</title>
-        <link rel="stylesheet" href="style.css" type="text/css" media="all">
+        <link rel="stylesheet" href="styles/style.css" type="text/css" media="all">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     </head>
+
     <body>
+        <!-- HEADER -->
         <header>
             <h1>JustStreamIt</h1>
             <nav>
@@ -16,12 +19,53 @@
                 </ul>
             </nav>
         </header>
-        <section>
-            <div id="banner">
 
+        <!-- SECTION -->
+        <section>
+            <!-- Best movie banner -->
+            <div id="highest-rated">
+                <h2>Le mieux noté</h2>
+                <p>highest_rated</p>
             </div>
-            <div class="carousel">
-                
+
+            <!-- Best movies -->
+            <div id="best-movies" class="category">
+                <h2>Meilleurs films</h2>
+                <div class="carousel">
+                    <button><i class="fas fa-arrow-circle-left"></i></button>
+                    <p>best_movies</p>
+                    <button><i class="fas fa-arrow-circle-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Action movies -->
+            <div id="action-movies" class="category">
+                <h2>Action</h2>
+                <div class="carousel">
+                    <button><i class="fas fa-arrow-circle-left"></i></button>
+                    <p>action_movies</p>
+                    <button><i class="fas fa-arrow-circle-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Thriller movies -->
+            <div id="thriller-movies" class="category">
+                <h2>Thriller</h2>
+                <div class="carousel">
+                    <button><i class="fas fa-arrow-circle-left"></i></button>
+                    <p>thriller_movies</p>
+                    <button><i class="fas fa-arrow-circle-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Horror movies -->
+            <div id="horror-movies" class="category">
+                <h2>Horreur</h2>
+                <div class="carousel">
+                    <button><i class="fas fa-arrow-circle-left"></i></button>
+                    <p>horror_movies</p>
+                    <button><i class="fas fa-arrow-circle-right"></i></button>
+                </div>
             </div>
         </section>
         <script src="scripts/main.js"></script>
