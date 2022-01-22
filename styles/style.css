@@ -2,8 +2,8 @@
 @font-face {
   font-family: 'Barlow';
   src:
-    url('fonts/Barlow-Regular.woff2') format('woff2'),
-    url('fonts/Barlow-Regular.woff') format('woff');
+    url('./fonts/Barlow-Regular.woff2') format('woff2'),
+    url('./fonts/Barlow-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
@@ -11,8 +11,8 @@
 @font-face {
   font-family: 'Barlow';
   src:
-    url('fonts/Barlow-Bold.woff2') format('woff2'),
-    url('fonts/Barlow-Bold.woff') format('woff');
+    url('./fonts/Barlow-Bold.woff2') format('woff2'),
+    url('./fonts/Barlow-Bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
 }
@@ -41,6 +41,7 @@ header {
     padding-right: 25px;
     display: flex;
     justify-content:space-between;
+    flex-wrap: wrap;
 }
 
 header h1 {
@@ -59,12 +60,37 @@ nav a, nav a:visited{
 }
 
 /* Section */
-#highest-rated {
+#highest-rated, #highest-rated h2, #highest-rated p  {
+    background-color: #d8dee9;
     text-align: center;
+    margin-bottom: 35px;
+}
+
+#highest-rated {
+    max-width:  800px;
+    margin: 35px auto 35px auto;
+    padding: 5px 15px 25px 15px;
+    border-radius: 25px;
+}
+
+#btn-more-info {
+    background-color: #2e3440;
+    color: #eceff4;
+    border-radius: 10px;
+    font-size: 1.2em;
+    line-height: 2;
+    padding: 0 10px;
+    border: none;
+    cursor: pointer;
+}
+
+#btn-more-info:hover {
+    background-color: #5e81ac;
 }
 
 .category {
     text-align: center;
+    margin-bottom: 25px;
 }
 
 .carousel {
@@ -72,9 +98,8 @@ nav a, nav a:visited{
     justify-content: space-between;
 }
 
-button {
+.btn-arrow {
     border: none;
-    color: red;
     font-size: 2.5em;
     cursor: pointer;
 }
