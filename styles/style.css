@@ -107,3 +107,44 @@ nav a, nav a:visited{
 .fas:hover {
     color: #5e81ac;
 }
+
+/* ----------------
+ * MODAL BOX
+ -----------------*/
+
+/* Background */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    max-width: 1600px;
+    max-height: 800px;
+    overflow: auto;
+    background-color: #3b4252;
+    border-radius: 15px;
+}
+
+/* Content */
+.modal-content {
+    background-color: #3b4252;
+    margin: 15% auto;
+    padding: 20px;
+}
+
+/* Close Button */
+#btn-close {
+    background-color: #3b4252;
+    color: #eceff4;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#btn-close:hover,
+#btn-close:focus {
+    color: #5e81ac;
+    text-decoration: none;
+    cursor: pointer;
+} 
