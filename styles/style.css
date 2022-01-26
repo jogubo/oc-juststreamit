@@ -18,8 +18,6 @@
 }
 
 * {
-    color: #2e3440;
-    background-color: #eceff4;
     font-family: 'Barlow', sans-serif;
 }
 
@@ -27,6 +25,7 @@ body {
     max-width: 1600px;
     margin-left: auto;
     margin-right: auto;
+    background-color: #eceff4;
 }
 
 /* Header */
@@ -60,13 +59,10 @@ nav a, nav a:visited{
 }
 
 /* Section */
-#highest-rated, #highest-rated h2, #highest-rated p  {
-    background-color: #d8dee9;
-    text-align: center;
-    margin-bottom: 35px;
-}
-
 #highest-rated {
+    background-color: #d8dee9;
+    color: #2e3440;
+    text-align: center;
     max-width:  800px;
     margin: 35px auto 35px auto;
     padding: 5px 15px 25px 15px;
@@ -89,6 +85,9 @@ nav a, nav a:visited{
 }
 
 .category {
+    background-color: #eceff4;
+    color: #2e3440;
+    border-radius: 10px;
     text-align: center;
     margin-bottom: 25px;
 }
@@ -119,25 +118,39 @@ nav a, nav a:visited{
     z-index: 1;
     left: 0;
     top: 0;
-    max-width: 1600px;
-    max-height: 800px;
+    width: 100%;
+    height: 100%;
     overflow: auto;
-    background-color: #3b4252;
-    border-radius: 15px;
+    background-color: rgba(0,0,0,0);
+    animation-name: modal-box;
+    animation-duration: 0.3s;
 }
 
+@keyframes modal-box {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 /* Content */
 .modal-content {
+    display: flex;
+    flex-direction: column;
     background-color: #3b4252;
-    margin: 15% auto;
+    color: #eceff4;
+    min-height: 60%;
+    max-width: 800px;
+    margin: 10% auto auto auto;
     padding: 20px;
+    border-radius: 15px;
 }
 
 /* Close Button */
 #btn-close {
-    background-color: #3b4252;
-    color: #eceff4;
     float: right;
+    text-align: right;
     font-size: 28px;
     font-weight: bold;
 }
