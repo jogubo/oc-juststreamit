@@ -140,6 +140,7 @@ nav a, nav a:visited{
     flex-direction: column;
     background-color: #3b4252;
     color: #eceff4;
+    text-align: justify;
     min-height: 60%;
     max-width: 800px;
     margin: 10% auto auto auto;

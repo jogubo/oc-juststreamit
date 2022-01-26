@@ -8,53 +8,61 @@ const mainUrl = "http://10.0.0.147:8000/api/v1/titles/";
 ///////////////////
 // Modal Box
 ///////////////////
-const modalBox = document.getElementById("modalBox");
-const btnClose = document.getElementById("btn-close");
+function createModal(movieId) {
+    fetch(`${mainUrl}${movieId}`)
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("movie-info").innerHTML = `
+            <h2 style="text-align: center">${data.title}</h2>
+            <p style="text-align: center"><img src="${data.image_url}"></p>
+            <p><strong>Genre:</strong> ${data.genres}</p>
+            <p><strong>Date de sortie:</strong> ${data.date_published}</p>
+            <p><strong>Score IMDb:</strong> ${data.imdb_score}</p>
+            <p><strong>Réalisateur(s):</strong> ${data.directors}</p>
+            <p><strong>Acteurs:</strong> ${data.actors}</p>
+            <p><strong>Durée:</strong> ${data.duration} minutes</p>
+            <p><strong>Pays:</strong> ${data.countries}</p>
+            <p><strong>Synopsis:</strong> ${data.long_description}</p>
+        `;
+        const btnClose = document.getElementById("btn-close");
+        const modalBox = document.getElementById("modal-box");
+        modalBox.style.display = "block";
+        btnClose.onclick = () => {modalBox.style.display = "none"};
+        window.onclick = event => {
+            if (event.target == modalBox) {
+                modalBox.style.display = "none";
+            }
+        }
+    })
+};
 
-btnClose.onclick = () => {
-    modalBox.style.display = "none";
-}
 
-window.onclick = event => {
-    if (event.target == modalBox) {
-        modalBox.style.display = "none";
-    }
-}
 
 ///////////////////
 // Best Movie
 ///////////////////
-const btnMoreInfo = document.getElementById("btn-more-info");
-
-function showPreviewBestMovie(url) {
-    fetch(url)
+function showPreviewBestMovie(movieId) {
+    fetch(`${mainUrl}${movieId}`)
     .then(response => response.json())
     .then(data => {
-        let movieData = data;
-        let bestMovie = document.getElementById("bestMovie");
-        let movieTitle = document.createElement("h2");
-        let movieDescription = document.createElement("p");
-        bestMovie.innerHTML = `<p><img src="${data.image_url}"></p>`
-        movieTitle.innerText = movieData.title;
-        movieDescription.innerText = movieData.description;
-        bestMovie.appendChild(movieTitle)
-        bestMovie.appendChild(movieDescription)
+        document.getElementById("best-movie").innerHTML = `
+            <p style="text-align: center"><strong>${data.title}</strong></p>
+            <p style="text-align: center"><img src="${data.image_url}"></p>
+            <p><strong>Synopsis:</strong> ${data.description}</p>
+        `;
     })
-}
+};
 
 function getBestMovie() {
     fetch(`${mainUrl}?sort_by=-imdb_score`)
     .then(response => response.json())
     .then(data => {
-        let movieUrl = data.results[0].url
-        console.log(movieUrl)
-        showPreviewBestMovie(movieUrl)
+        const btnMoreInfo = document.getElementById("btn-more-info");
+        let movieId = data.results[0].id;
+        showPreviewBestMovie(movieId);
+        btnMoreInfo.onclick = () => createModal(movieId);
     })
-}
-
-btnMoreInfo.onclick = () => {
-    modalBox.style.display = "block";
-}
+};
 
 
 ///////////////////
@@ -63,4 +71,11 @@ btnMoreInfo.onclick = () => {
 const btnArrowLeft = document.getElementsByClassName("arrow-left");
 const btnArrowRight = document.getElementsByClassName("arrow-right");
 
-getBestMovie()
+///////////////////
+// Run
+///////////////////
+function main() {
+    getBestMovie()
+};
+
+main();
