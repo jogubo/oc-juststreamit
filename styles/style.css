@@ -83,7 +83,9 @@ nav a, nav a:visited{
 #btn-more-info:hover {
     background-color: #5e81ac;
 }
-
+/*-----------------
+ *  CAROUSEL
+ *---------------*/
 .category {
     background-color: #eceff4;
     color: #2e3440;
@@ -92,22 +94,33 @@ nav a, nav a:visited{
     margin-bottom: 25px;
 }
 
+.category-title {
+    margin-bottom: 0;
+}
+
 .carousel {
     display: flex;
     justify-content: space-between;
 }
 
+.carousel-content {
+    display: flex;
+    justify-content: space-between;
+}
+
 .btn-arrow {
+    background-color: #eceff4;
+    color: #2e3440;
     border: none;
     font-size: 2.5em;
     cursor: pointer;
 }
 
-.fas:hover {
+.btn-arrow:hover {
     color: #5e81ac;
 }
 
-/* ----------------
+/*-----------------
  * MODAL BOX
  -----------------*/
 
@@ -143,7 +156,7 @@ nav a, nav a:visited{
     text-align: justify;
     min-height: 60%;
     max-width: 800px;
-    margin: 10% auto auto auto;
+    margin: 5% auto auto auto;
     padding: 20px;
     border-radius: 15px;
 }

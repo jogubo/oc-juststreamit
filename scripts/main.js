@@ -74,9 +74,19 @@ function getBestMovie() {
 const btnArrowLeft = document.getElementsByClassName("arrow-left");
 const btnArrowRight = document.getElementsByClassName("arrow-right");
 
-async function createCarousel(category) {
-    let carousel = document.getElementById("carouseltest");
-    carousel.style.display = "flex";
+function addItemToCarousel(movieData) {
+    let carousel = movieData.carousel_element;
+    let content = carousel.querySelector('.carousel-content')
+    let movie = document.createElement("p");
+    movie.innerHTML = `
+        <img src="${movieData.image_url}" alt="${movieData.title}">
+        `;
+    content.appendChild(movie);
+    movie.onclick = () => createModal(movieData.id);
+};
+
+async function createCarousel(category, elementId) {
+    let carousel = document.getElementById(`${elementId}`);
     let page = 1;
     let currentItem = 1;
     while (currentItem <= 7) {
@@ -88,10 +98,9 @@ async function createCarousel(category) {
         .then(data => {
             for (let movie of data.results) {
                 if (currentItem <= 7) {
-                    let movies = document.createElement("p");
-                    movies.innerHTML = `<img src="${movie.image_url}">`;
+                    movie.carousel_element = carousel;
+                    addItemToCarousel(movie);
                     currentItem++;
-                    carousel.appendChild(movies);
                 } else break;
             }
         })
@@ -106,7 +115,10 @@ async function createCarousel(category) {
 ///////////////////
 function main() {
     getBestMovie()
-    createCarousel("action")
+    createCarousel("", "best-movies")
+    createCarousel("sci-fi", "sci-fi")
+    createCarousel("animation", "animation")
+    createCarousel("fantasy", "fantasy")
 };
 
 main();
