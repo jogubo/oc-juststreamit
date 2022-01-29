@@ -5,6 +5,7 @@
 ///////////////////
 const mainUrl = "http://10.0.0.147:8000/api/v1/titles/";
 
+
 ///////////////////
 // Modal Box
 ///////////////////
@@ -34,8 +35,8 @@ function createModal(movieId) {
             }
         }
     })
+    .catch(error => console.log(error))
 };
-
 
 
 ///////////////////
@@ -46,11 +47,12 @@ function showPreviewBestMovie(movieId) {
     .then(response => response.json())
     .then(data => {
         document.getElementById("best-movie").innerHTML = `
-            <p style="text-align: center"><strong>${data.title}</strong></p>
             <p style="text-align: center"><img src="${data.image_url}"></p>
-            <p><strong>Synopsis:</strong> ${data.description}</p>
+            <p style="text-align: center"><strong>${data.title}</strong></p>
+            <p>${data.description}</p>
         `;
     })
+    .catch(error => console.log(error))
 };
 
 function getBestMovie() {
@@ -62,6 +64,7 @@ function getBestMovie() {
         showPreviewBestMovie(movieId);
         btnMoreInfo.onclick = () => createModal(movieId);
     })
+    .catch(error => console.log(error))
 };
 
 
@@ -71,11 +74,32 @@ function getBestMovie() {
 const btnArrowLeft = document.getElementsByClassName("arrow-left");
 const btnArrowRight = document.getElementsByClassName("arrow-right");
 
+function createCarousel(category) {
+    let page = 1
+    while (page < 3) {
+        fetch(`
+            ${mainUrl}?genre_contains=${category}
+            &sort_by=-imdb_score&page=${page}
+            `)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            for (let movie of data.results) {
+                console.log(movie.id)
+            }
+        })
+        .catch(error => console.log(error));
+        page++
+    }
+}
+
+
 ///////////////////
 // Run
 ///////////////////
 function main() {
     getBestMovie()
+    createCarousel("action")
 };
 
 main();
