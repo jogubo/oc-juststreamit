@@ -74,24 +74,31 @@ function getBestMovie() {
 const btnArrowLeft = document.getElementsByClassName("arrow-left");
 const btnArrowRight = document.getElementsByClassName("arrow-right");
 
-function createCarousel(category) {
-    let page = 1
-    while (page < 3) {
-        fetch(`
+async function createCarousel(category) {
+    let carousel = document.getElementById("carouseltest");
+    carousel.style.display = "flex";
+    let page = 1;
+    let currentItem = 1;
+    while (currentItem <= 7) {
+        await fetch(`
             ${mainUrl}?genre_contains=${category}
             &sort_by=-imdb_score&page=${page}
             `)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             for (let movie of data.results) {
-                console.log(movie.id)
+                if (currentItem <= 7) {
+                    let movies = document.createElement("p");
+                    movies.innerHTML = `<img src="${movie.image_url}">`;
+                    currentItem++;
+                    carousel.appendChild(movies);
+                } else break;
             }
         })
         .catch(error => console.log(error));
-        page++
-    }
-}
+        page++;
+    };
+};
 
 
 ///////////////////
