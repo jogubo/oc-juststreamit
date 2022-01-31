@@ -71,9 +71,6 @@ function getBestMovie() {
 ///////////////////
 // Carousel
 ///////////////////
-// const btnArrowLeft = document.querySelector(".arrow-left");
-// const btnArrowRight = document.querySelector(".arrow-right");
-
 function addItemToCarousel(movieData) {
     let carousel = movieData.carousel_element;
     let content = carousel.querySelector('.carousel-content')
@@ -87,19 +84,22 @@ function addItemToCarousel(movieData) {
 
 function showSlide(carouselElement) {
     let content = carouselElement.querySelector('.carousel-content');
-    let buttonArrow = carouselElement.querySelector(".btn-arrow");
-        buttonArrow.onclick = () => {
+    let values = [[0,-75,25],[-75,0,-25]];
+    let buttonArrow = carouselElement.querySelectorAll(".btn-arrow");
+    for (let i = 0; i <=1; i++) {
+        buttonArrow[i].onclick = () => {
             let newPosition;
             let currentPosition = parseInt(content.getAttribute('data-pos'))
             console.log(currentPosition)
-            if (currentPosition == 0) {
-                newPosition = -75
+            if (currentPosition == values[i][0]) {
+                newPosition = values[i][1]
             } else {
-                newPosition = currentPosition + 25
+                newPosition = currentPosition + values[i][2]
             }
             content.setAttribute('data-pos', newPosition);
             content.style.left = `${newPosition}%`;
         }
+    }
 }
 
 async function createCarousel(category, elementId) {
