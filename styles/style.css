@@ -19,34 +19,30 @@
 
 * {
     font-family: 'Barlow', sans-serif;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 body {
-    max-width: 1600px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #2e3440;
+    background-color: #d8dee9;
 }
 
 /* Header */
 header {
     background-color: #3b4252;
-    box-shadow: 0 0  1em rgba(0,0,0,0.5);
-}
-
-header h1 {
-    color: #81a1c1;
-}
-
-header {
+    border-radius: 5px;
     padding-left:25px;
     padding-right: 25px;
     display: flex;
     justify-content:space-between;
+    box-shadow: 0 0  1em rgba(0,0,0,0.5);
     flex-wrap: wrap;
 }
 
 header h1 {
+    color: #81a1c1;
     font-weight: 400;
 }
 
@@ -69,6 +65,12 @@ nav a, nav a:visited{
     max-width:  800px;
     margin: 35px auto 35px auto;
     padding: 5px 15px 25px 15px;
+    border-radius: 5px;
+    box-shadow: 0 0  1em rgba(0,0,0,0.5);
+}
+
+#highest-rated img {
+    border-radius: 5px;
     box-shadow: 0 0  1em rgba(0,0,0,0.5);
 }
 
@@ -76,6 +78,7 @@ nav a, nav a:visited{
     background-color: #2e3440;
     color: #e5e9f0;
     border: solid;
+    border-radius: 5px;
     font-size: 1.2em;
     line-height: 2;
     padding: 0 10px;
@@ -97,12 +100,16 @@ nav a, nav a:visited{
 }
 
 .category-title {
+    color: #434c5e;
+    font-size: 1.8em;
     margin-bottom: 10px;
 }
 
 .carousel {
     display: flex;
+    background-color: #e5e9f0;
     width: 100%;
+    margin: 10px 10px 10px 10px;
     justify-content: space-between;
     box-shadow: 0 0  1em rgba(0,0,0,0.5);
 }
@@ -120,15 +127,12 @@ nav a, nav a:visited{
     left: 0;
     width: 100%;
     justify-content: space-between;
-    transition: .3s ease-in-out;
-}
-
-.carousel-content span {
-    min-width: 25% !important;
+    transition: .5s ease-in-out;
 }
 
 .carousel-content img{
-    min-width: 97%;
+    min-width: 25%;
+    vertical-align: middle;
     cursor: pointer;
 }
 
@@ -137,8 +141,8 @@ nav a, nav a:visited{
 }
 
 .btn-arrow {
-    background-color: #2e3440;
-    color: #e5e9f0;
+    background-color: #e5e9f0;
+    color: #434c5e;
     border: none;
     font-size: 2.5em;
     cursor: pointer;
@@ -163,11 +167,11 @@ nav a, nav a:visited{
     height: 100%;
     overflow: auto;
     background-color: rgba(0,0,0,0);
-    animation-name: modal-box;
+    animation-name: open-modal;
     animation-duration: 0.3s;
 }
 
-@keyframes modal-box {
+@keyframes open-modal {
     from {
         opacity: 0;
     }
@@ -186,7 +190,15 @@ nav a, nav a:visited{
     max-width: 800px;
     margin: 5% auto auto auto;
     padding: 20px;
+    border-radius: 5px;
     box-shadow: 0 0  1em rgba(0,0,0,0.5);
+    filter: none;
+}
+
+.modal-content img {
+    border-radius: 5px;
+    box-shadow: 0 0  1em rgba(0,0,0,0.5);
+    filter: none;
 }
 
 /* Close Button */
@@ -203,3 +215,12 @@ nav a, nav a:visited{
     text-decoration: none;
     cursor: pointer;
 } 
+
+/*-----------------
+* FOOTER
+-----------------**/
+footer {
+    margin-top: 20px;
+    color: #434c5e;
+    text-align: center;
+}

@@ -28,10 +28,14 @@ function createModal(movieId) {
         const btnClose = document.getElementById("btn-close");
         const modalBox = document.getElementById("modal-box");
         modalBox.style.display = "block";
+        document.querySelector('main').style.filter = "blur(4px)";
+        document.querySelector('header').style.filter = "blur(4px)";
         btnClose.onclick = () => {modalBox.style.display = "none"};
         window.onclick = event => {
             if (event.target == modalBox) {
                 modalBox.style.display = "none";
+                document.querySelector('main').style.filter = "none";
+                document.querySelector('header').style.filter = "none";
             }
         }
     })
@@ -74,10 +78,9 @@ function getBestMovie() {
 function addItemToCarousel(movieData) {
     let carousel = movieData.carousel_element;
     let content = carousel.querySelector('.carousel-content')
-    let movie = document.createElement("span");
-    movie.innerHTML = `
-        <img src="${movieData.image_url}" alt="${movieData.title}">
-        `;
+    let movie = document.createElement("img");
+    movie.src = `${movieData.image_url}`;
+    movie.alt = `${movieData.title}`
     content.appendChild(movie);
     movie.onclick = () => createModal(movieData.id);
 };
@@ -90,7 +93,6 @@ function showSlide(carouselElement) {
         buttonArrow[i].onclick = () => {
             let newPosition;
             let currentPosition = parseInt(content.getAttribute('data-pos'))
-            console.log(currentPosition)
             if (currentPosition == values[i][0]) {
                 newPosition = values[i][1]
             } else {
