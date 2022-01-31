@@ -28,19 +28,28 @@ function createModal(movieId) {
         const btnClose = document.getElementById("btn-close");
         const modalBox = document.getElementById("modal-box");
         modalBox.style.display = "block";
-        document.querySelector('main').style.filter = "blur(4px)";
-        document.querySelector('header').style.filter = "blur(4px)";
-        btnClose.onclick = () => {modalBox.style.display = "none"};
+        showBlur(true);
+        btnClose.onclick = () => {
+            modalBox.style.display = "none";
+            showBlur(false);
+        };
         window.onclick = event => {
             if (event.target == modalBox) {
                 modalBox.style.display = "none";
-                document.querySelector('main').style.filter = "none";
-                document.querySelector('header').style.filter = "none";
+                showBlur(false);
             }
         }
     })
     .catch(error => console.log(error))
 };
+
+function showBlur(value) {
+    let blur;
+    value ? blur = "blur(4px)" : blur = "none"
+    document.querySelector('main').style.filter = blur;
+    document.querySelector('header').style.filter = blur;
+};
+
 
 
 ///////////////////
