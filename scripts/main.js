@@ -71,19 +71,36 @@ function getBestMovie() {
 ///////////////////
 // Carousel
 ///////////////////
-const btnArrowLeft = document.getElementsByClassName("arrow-left");
-const btnArrowRight = document.getElementsByClassName("arrow-right");
+// const btnArrowLeft = document.querySelector(".arrow-left");
+// const btnArrowRight = document.querySelector(".arrow-right");
 
 function addItemToCarousel(movieData) {
     let carousel = movieData.carousel_element;
     let content = carousel.querySelector('.carousel-content')
-    let movie = document.createElement("p");
+    let movie = document.createElement("span");
     movie.innerHTML = `
         <img src="${movieData.image_url}" alt="${movieData.title}">
         `;
     content.appendChild(movie);
     movie.onclick = () => createModal(movieData.id);
 };
+
+function showSlide(carouselElement) {
+    let content = carouselElement.querySelector('.carousel-content');
+    let buttonArrow = carouselElement.querySelector(".btn-arrow");
+        buttonArrow.onclick = () => {
+            let newPosition;
+            let currentPosition = parseInt(content.getAttribute('data-pos'))
+            console.log(currentPosition)
+            if (currentPosition == 0) {
+                newPosition = -75
+            } else {
+                newPosition = currentPosition + 25
+            }
+            content.setAttribute('data-pos', newPosition);
+            content.style.left = `${newPosition}%`;
+        }
+}
 
 async function createCarousel(category, elementId) {
     let carousel = document.getElementById(`${elementId}`);
@@ -107,6 +124,7 @@ async function createCarousel(category, elementId) {
         .catch(error => console.log(error));
         page++;
     };
+    showSlide(carousel);
 };
 
 

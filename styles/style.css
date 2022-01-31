@@ -100,12 +100,37 @@ nav a, nav a:visited{
 
 .carousel {
     display: flex;
+    width: 80%;
     justify-content: space-between;
+}
+
+.carousel-wrap {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
 }
 
 .carousel-content {
     display: flex;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
     justify-content: space-between;
+    transition: .3s ease-in-out;
+}
+
+.carousel-content span {
+    min-width: 25% !important;
+}
+
+.carousel-content img{
+    min-width: 97%;
+    cursor: pointer;
+}
+
+.carousel-content img:hover {
+    transform: scale(1.04);
 }
 
 .btn-arrow {
