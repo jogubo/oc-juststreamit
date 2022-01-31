@@ -25,14 +25,17 @@ body {
     max-width: 1600px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #eceff4;
+    background-color: #2e3440;
 }
 
 /* Header */
-header, header * {
-    background-color: #2e3440;
-    color: #eceff4;
-    border-radius: 25px;
+header {
+    background-color: #3b4252;
+    box-shadow: 0 0  1em rgba(0,0,0,0.5);
+}
+
+header h1 {
+    color: #81a1c1;
 }
 
 header {
@@ -53,26 +56,26 @@ nav ul {
 }
 
 nav a, nav a:visited{
-    color: #eceff4;
+    color: #e5e9f0;
     padding-left: 10px;
     text-decoration: none;
 }
 
 /* Section */
 #highest-rated {
-    background-color: #d8dee9;
-    color: #2e3440;
+    background-color:#434c5e;
+    color: #e5e9f0;
     text-align: center;
     max-width:  800px;
     margin: 35px auto 35px auto;
     padding: 5px 15px 25px 15px;
-    border-radius: 25px;
+    box-shadow: 0 0  1em rgba(0,0,0,0.5);
 }
 
 #btn-more-info {
     background-color: #2e3440;
-    color: #eceff4;
-    border-radius: 10px;
+    color: #e5e9f0;
+    border: solid;
     font-size: 1.2em;
     line-height: 2;
     padding: 0 10px;
@@ -87,21 +90,21 @@ nav a, nav a:visited{
  *  CAROUSEL
  *---------------*/
 .category {
-    background-color: #eceff4;
-    color: #2e3440;
+    color: #e5e9f0;
     border-radius: 10px;
     text-align: center;
     margin-bottom: 25px;
 }
 
 .category-title {
-    margin-bottom: 0;
+    margin-bottom: 10px;
 }
 
 .carousel {
     display: flex;
-    width: 80%;
+    width: 100%;
     justify-content: space-between;
+    box-shadow: 0 0  1em rgba(0,0,0,0.5);
 }
 
 .carousel-wrap {
@@ -134,8 +137,8 @@ nav a, nav a:visited{
 }
 
 .btn-arrow {
-    background-color: #eceff4;
-    color: #2e3440;
+    background-color: #2e3440;
+    color: #e5e9f0;
     border: none;
     font-size: 2.5em;
     cursor: pointer;
@@ -177,13 +180,13 @@ nav a, nav a:visited{
     display: flex;
     flex-direction: column;
     background-color: #3b4252;
-    color: #eceff4;
+    color: #e5e9f0;
     text-align: justify;
     min-height: 60%;
     max-width: 800px;
     margin: 5% auto auto auto;
     padding: 20px;
-    border-radius: 15px;
+    box-shadow: 0 0  1em rgba(0,0,0,0.5);
 }
 
 /* Close Button */
