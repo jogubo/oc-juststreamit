@@ -3,7 +3,7 @@
 ///////////////////
 // API Settings
 ///////////////////
-const mainUrl = "http://10.0.0.147:8000/api/v1/titles/";
+const mainUrl = "http://127.0.0.1:8000/api/v1/titles/";
 
 
 ///////////////////
@@ -18,11 +18,13 @@ function createModal(movieId) {
             <p style="text-align: center"><img src="${data.image_url}"></p>
             <p><strong>Genre:</strong> ${data.genres}</p>
             <p><strong>Date de sortie:</strong> ${data.date_published}</p>
+            <p><strong>Score:</strong> ${data.avg_vote}</p>
             <p><strong>Score IMDb:</strong> ${data.imdb_score}</p>
             <p><strong>Réalisateur(s):</strong> ${data.directors}</p>
             <p><strong>Acteurs:</strong> ${data.actors}</p>
             <p><strong>Durée:</strong> ${data.duration} minutes</p>
             <p><strong>Pays:</strong> ${data.countries}</p>
+            <p><strong>Box office:</strong> ${data.worldwide_gross_income}</p>
             <p><strong>Synopsis:</strong> ${data.long_description}</p>
         `;
         const btnClose = document.getElementById("btn-close");

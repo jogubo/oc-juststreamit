@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  juststreamit-front:
+    image: juststreamit-front:latest
+    container_name: juststreamit-front
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:80
+
+  juststreamit-api:
+    image: juststreamit-api:latest
+    container_name: juststreamit-api
+    build:
+      context: .
+      dockerfile: api.Dockerfile
+    ports:
+      - 8000:8000
